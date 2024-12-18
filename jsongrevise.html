@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        var students = []
+        function adddata()
+        {
+            var student = {};
+            student.name = document.getElementById("txtname").value;
+            student.age=parseInt(document.getElementById("txtage").value)
+            student.city = document.getElementById("txtcity").value
+            students.push(student)
+            document.getElementById("txtname").value="";
+            document.getElementById("txtage").value="";
+            document.getElementById("txtcity").value="";
+
+            showdata()
+        }
+        function showdata()
+        {
+          var studentsUI =   students.map((student)=>
+          {
+            return "<p>"+student.name+" | "+student.age+" | "+student.city+ "</p>"
+          })
+          var data = document.getElementById("data")
+          data.innerHTML="";
+          data.innerHTML = studentsUI;
+            // var marks = [12,423,42,43]
+            // var newmarks = marks.map((m)=>
+            // {
+            //     return (m*0.1)
+            // })
+            // console.log(newmarks)
+        }
+    </script>
+</head>
+<body>
+    <p>Name: <input type="text" id="txtname"></p>
+    <p>city: <input type="text" id="txtcity"></p>
+    <p>age : <input type="text" id="txtage"></p>
+    <input type="button" value="click here " onclick="adddata()">
+    <div id="data">
+
+    </div>
+</body>
+</html>
